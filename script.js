@@ -305,4 +305,29 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // 10. Read More Toggle for Project Descriptions
+  const projectDescs = document.querySelectorAll('.project-card-desc');
+  
+  // Need to wait slightly for font loading/rendering to accurately measure scrollHeight
+  setTimeout(() => {
+    projectDescs.forEach(desc => {
+      if (desc.scrollHeight > desc.clientHeight + 2) {
+        const btn = document.createElement('span');
+        btn.textContent = '+ Read More';
+        btn.className = 'read-more-toggle';
+        desc.parentNode.insertBefore(btn, desc.nextSibling);
+        
+        btn.addEventListener('click', () => {
+          desc.classList.toggle('expanded');
+          if (desc.classList.contains('expanded')) {
+            btn.textContent = '- Show Less';
+          } else {
+            btn.textContent = '+ Read More';
+          }
+        });
+      }
+    });
+  }, 100);
+
 });

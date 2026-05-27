@@ -1524,7 +1524,6 @@ body.dark-mode .skills-display-container.layout-bento .skills-cat-row:hover {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .project-num-tag {
@@ -1549,7 +1548,37 @@ body.dark-mode .skills-display-container.layout-bento .skills-cat-row:hover {
   font-size: 13.5px;
   line-height: 1.6;
   color: var(--color-ink-muted);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  
+  /* Truncate long descriptions to 4 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 6.4em;
+}
+
+.project-card-desc.expanded {
+  -webkit-line-clamp: unset;
+  max-height: none;
+}
+
+.read-more-toggle {
+  color: var(--color-accent);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  transition: color 0.25s ease;
+}
+
+.read-more-toggle:hover {
+  color: var(--color-ink);
 }
 
 /* Impact Metrics styling */
@@ -1665,7 +1694,7 @@ body.dark-mode .skills-display-container.layout-bento .skills-cat-row:hover {
 .project-cta-actions {
   display: flex;
   gap: 12px;
-  margin-top: auto;
+  margin-top: 2rem;
 }
 
 /* ==========================================================================
